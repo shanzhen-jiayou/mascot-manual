@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascot Operation Manual (PPT Optimized)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700;900&display=swap');
+
+        /* [배경색 설정] 
+           따뜻하고 밝은 톤(#FFFBF0)으로 전체 통일
+        */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #FFFBF0; 
+            color: #1E293B;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 16:9 PPT Slide Optimized Container */
+        .ppt-container {
+            width: 1280px; /* 16:9 HD Ratio Width */
+            margin: 0 auto;
+            background-color: #FFFBF0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        /* Typography Overrides (큰 글씨 검정색) */
+        h1, h2, .core-title {
+            color: #000000;
+        }
+        
+        /* 메인 타이틀 강제 흰색 적용 클래스 */
+        .main-title-white {
+            color: #FFFFFF !important;
+        }
+        
+        .bg-primary { background-color: #2563EB; }
+        .text-primary { color: #2563EB; }
+        .border-primary { border-color: #2563EB; }
+        
+        .bg-secondary { background-color: #DC2626; }
+        .text-secondary { color: #DC2626; }
+        
+        /* 안쪽 사각형(카드) 스타일 - 전체 일관성 유지 */
+        .card-box {
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 1.5rem; /* 둥근 모서리 강화 */
+            transition: transform 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .flow-arrow::after {
+                content: '➤';
+                position: absolute;
+                top: 50%;
+                right: -2.5rem;
+                transform: translateY(-50%);
+                color: #94A3B8;
+                font-size: 2.5rem;
+            }
+            .flow-arrow:last-child::after {
+                content: none;
+            }
+        }
+    </style>
+    <script>
+        function handleImageError(img, placeholderSrc) {
+            const currentSrc = img.src;
+            if (currentSrc.match(/\.jpg$/i)) {
+                img.src = currentSrc.replace(/\.jpg$/i, '.png');
+            } else {
+                img.src = placeholderSrc;
+                img.onerror = null;
+            }
+        }
+    </script>
+</head>
+<body class="antialiased text-gray-800">
+
+    <div class="ppt-container">
+        
+        <!-- [NEW] 최상단 대여 신청서 링크 배너 -->
+        <div class="w-full bg-indigo-900 text-white text-center py-4 shadow-md z-50 relative">
+            <!-- [LINK APPLIED] 구글 폼 링크 적용 완료 -->
+            <a href="https://forms.gle/3eaJJCB4ekRFV4KeA" target="_blank" class="text-xl font-bold hover:text-yellow-300 transition-colors flex items-center justify-center gap-2">
+                📝 인형탈 대여 신청서 작성하기 (Click)
+            </a>
+        </div>
+
+        <!-- 1. Hero Section & Core Principles -->
+        <header class="bg-gradient-to-r from-blue-600 to-blue-500 text-white pt-16 pb-20 px-12 relative shadow-lg mx-6 mt-6 rounded-3xl mb-16">
+            <div class="relative z-10 text-center">
+                <!-- 타이틀 흰색 적용 -->
+                <h1 class="text-6xl font-black mb-6 tracking-tight main-title-white">인형탈 운영 & 관리 솔루션</h1>
+                <p class="text-3xl font-light text-blue-100">일체형 캐릭터(One-Piece) 표준 매뉴얼</p>
+            </div>
+            
+            <!-- Character Photos -->
+            <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto mt-12 mb-16">
+                <!-- Front -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/30 text-center">
+                    <div class="relative aspect-video bg-white rounded-2xl overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+                        <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfMzEg/MDAxNzY1OTM5NjcwMjY2.A1LT7FzJjB7lvv1JKcYEvcCEj7dFjpUnmDpxDYPrmOsg.xhXaAs2OJ7xMClReLATIGBC6DkBAs2SLgZX6grHe3n8g.PNG/character_front.png?type=w466" alt="정면 사진" class="w-full h-full object-contain bg-gray-50" 
+                             onerror="handleImageError(this, 'https://placehold.co/800x450/f8fafc/cbd5e1?text=Front');">
+                    </div>
+                    <span class="font-bold text-lg bg-white/20 px-4 py-1 rounded-full border border-white/40">▲ 정면 (Front)</span>
+                </div>
+                <!-- Side -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/30 text-center">
+                    <div class="relative aspect-video bg-white rounded-2xl overflow-hidden shadow-lg mb-4 flex items-center justify-center">
+                        <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfOTAg/MDAxNzY1OTM5NjcwMjU3.PfKIH_Xeaffb00bZUA3RGJpI5H-RGVvxhJZ590FqA_Ig.rwS7fGvyCie6x-3kjdzA1ukCP_fGIgY40KoS1x3Cr0cg.PNG/character_side.png?type=w466" alt="측면 사진" class="w-full h-full object-contain bg-gray-50" 
+                             onerror="handleImageError(this, 'https://placehold.co/800x450/f8fafc/cbd5e1?text=Side');">
+                    </div>
+                    <span class="font-bold text-lg bg-white/20 px-4 py-1 rounded-full border border-white/40">▲ 측면 (Side)</span>
+                </div>
+            </div>
+
+            <!-- Core Principles -->
+            <div class="bg-white rounded-3xl p-10 shadow-xl border-4 border-white/20 text-gray-800">
+                <h2 class="text-center text-4xl font-bold mb-10 text-black">1. 핵심 원칙 (Core Principles)</h2>
+                <div class="grid grid-cols-3 gap-8 text-center">
+                    <div class="p-8 bg-blue-50 rounded-2xl border-2 border-blue-100 card-hover">
+                        <div class="text-6xl mb-4">🧩</div>
+                        <h3 class="font-bold text-3xl mb-3 text-black">일체형 구조</h3>
+                        <p class="text-xl text-gray-600">머리+몸통+손 연결<br><strong class="text-red-600">(신발 분리)</strong></p>
+                    </div>
+                    <div class="p-8 bg-red-50 rounded-2xl border-2 border-red-100 card-hover">
+                        <div class="text-6xl mb-4">🤝</div>
+                        <h3 class="font-bold text-3xl mb-3 text-black">보조자 필수</h3>
+                        <p class="text-xl text-gray-600">혼자 착용 불가<br>2인 1조 활동</p>
+                    </div>
+                    <div class="p-8 bg-yellow-50 rounded-2xl border-2 border-yellow-100 card-hover">
+                        <div class="text-6xl mb-4">🛡️</div>
+                        <h3 class="font-bold text-3xl mb-3 text-black">안전 제일</h3>
+                        <p class="text-xl text-gray-600">컨디션 최우선<br><strong>평지 이동</strong></p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="px-12 pb-16 space-y-20">
+
+            <!-- 2. Qualifications & Time Rules -->
+            <section class="grid grid-cols-2 gap-12">
+                <!-- 자격 요건 -->
+                <div>
+                    <div class="mb-6 pl-6 border-l-8 border-blue-600">
+                        <h2 class="text-4xl font-bold text-black">2. 캐릭터 마스터 자격</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="card-box p-6 flex items-center justify-between">
+                            <h3 class="text-gray-600 font-bold text-2xl">📏 신장</h3>
+                            <p class="text-3xl font-black text-blue-600">170 ~ 175cm</p>
+                        </div>
+                        <div class="card-box p-6 flex items-center justify-between">
+                            <h3 class="text-gray-600 font-bold text-2xl">💪 건강</h3>
+                            <p class="text-2xl font-bold text-gray-800 text-right">폐소공포증<br>디스크 없음</p>
+                        </div>
+                        <div class="card-box p-6 flex items-center justify-between">
+                            <h3 class="text-gray-600 font-bold text-2xl">💖 마인드</h3>
+                            <p class="text-2xl font-bold text-red-500 text-right">적극 소통<br>에너지</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 시간 규정 -->
+                <div>
+                    <div class="mb-6 pl-6 border-l-8 border-red-600">
+                        <h2 class="text-4xl font-bold text-black">3. 활동 시간</h2>
+                    </div>
+                    <div class="space-y-6">
+                        <!-- Standard -->
+                        <div class="card-box p-8">
+                            <h3 class="font-bold text-2xl mb-4 text-black">🌱 기본 활동 (봄/가을/겨울)</h3>
+                            <div class="w-full h-20 rounded-xl flex overflow-hidden mb-4 shadow-inner">
+                                <div class="w-2/3 bg-blue-600 text-white flex items-center justify-center font-bold text-2xl">30분 활동</div>
+                                <div class="w-1/3 bg-gray-300 text-gray-700 flex items-center justify-center font-bold text-2xl">15분 휴식</div>
+                            </div>
+                        </div>
+                        <!-- Summer -->
+                        <div class="bg-red-50 border-2 border-red-200 rounded-2xl p-8 card-box !bg-red-50 !border-red-200">
+                            <h3 class="font-bold text-2xl mb-4 text-red-700">☀️ 여름철 </h3>
+                            <div class="w-full h-20 rounded-xl flex overflow-hidden mb-4 shadow-inner">
+                                <div class="w-1/2 bg-red-500 text-white flex items-center justify-center font-bold text-2xl">20분</div>
+                                <div class="w-1/2 bg-gray-300 text-gray-700 flex items-center justify-center font-bold text-2xl">20분</div>
+                            </div>
+                            <p class="text-center font-bold text-red-600 text-xl">⚠️ 내부 열감 주의: 1:1 비율 휴식</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Donning Guide (Modified Alignment & Warning Position) -->
+            <section class="bg-white p-10 rounded-3xl border-2 border-gray-200 shadow-md card-box">
+                <!-- [CHANGED] text-center 제거 (왼쪽 정렬) -->
+                <div class="mb-10">
+                    <!-- [CHANGED] 주의사항을 타이틀 위로 이동 -->
+                    <p class="text-red-600 font-bold text-2xl mb-2 flex items-center">
+                        <span class="mr-2">🚨</span> 주의: 반드시 보조자와 함께 착용하세요.
+                    </p>
+                    <h2 class="text-4xl font-bold text-black">4. 착용 가이드</h2>
+                </div>
+
+                <div class="grid grid-cols-3 gap-10 mb-10">
+                    <!-- Step 1 -->
+                    <div class="flow-arrow relative flex flex-col bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4">1</div>
+                        <h4 class="text-2xl font-bold mb-4 text-black">신발 착용</h4>
+                        <div class="aspect-square bg-white rounded-xl overflow-hidden mb-4 border border-gray-200 flex items-center justify-center">
+                            <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfMTkw/MDAxNzY1OTM5NjcwMjQ0.tw8wc9pEZVBi7qW5U0kyz1OUpTohO9KhkvBmefye7G4g.mpFj-7oGM8EsUCmBqHhJaMesj1ak6XCbF2JOKNECpu8g.PNG/character_shoes.png?type=w466" alt="신발" class="w-full h-full object-contain"
+                                 onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step1');">
+                        </div>
+                        <p class="text-gray-700 text-center text-lg font-bold">신발 먼저 착용 후 고정</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flow-arrow relative flex flex-col bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4">2</div>
+                        <h4 class="text-2xl font-bold mb-4 text-black">착용자 준비</h4>
+                        <div class="aspect-square bg-white rounded-xl overflow-hidden mb-4 border border-gray-200 flex items-center justify-center">
+                            <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfMTc1/MDAxNzY1OTM5NjcwNzU3.VrwpkbTOskqa7SRUOg1hsOV31mA2Beu8vUKol-lmMR0g.mD_5rA4NeEFYuRFAhSZrzdCp0IQHLiDbFEyhUITLor4g.PNG/mascot_body.png?type=w466" alt="준비" class="w-full h-full object-contain"
+                                 onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step2');">
+                        </div>
+                        <p class="text-gray-700 text-center text-lg font-bold">허리 숙이고 손 뻗기</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4">3</div>
+                        <h4 class="text-2xl font-bold mb-4 text-black">보조자 도움</h4>
+                        <div class="aspect-square bg-white rounded-xl overflow-hidden mb-4 border border-gray-200 flex items-center justify-center">
+                            <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfMTMz/MDAxNzY1OTM5NjcwNTIx.SE68LJyA42K-3jYiUC4mR7_-cyGEW7v7_nNnGsQ7ldsg.niHym5Mql90CCVdWnZYFXWtRo8oCXIGXSrKC1KK62IUg.PNG/wearing_action.png?type=w966" alt="도움" class="w-full h-full object-contain"
+                                 onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step3');">
+                        </div>
+                        <p class="text-gray-700 text-center text-lg font-bold">팔과 얼굴부터 씌우기</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Action & Manager -->
+            <section class="grid grid-cols-2 gap-12">
+                <!-- Action Guide -->
+                <div class="card-box p-10 shadow-lg">
+                    <h2 class="text-3xl font-bold mb-8 text-black">5. 연기 & 액션</h2>
+                    <div class="bg-indigo-50 p-6 rounded-2xl text-center mb-8 border border-indigo-100">
+                        <h3 class="text-4xl font-black text-indigo-900 mb-2">ACTION × 2.0</h3>
+                        <p class="text-indigo-800 font-bold text-xl">동작은 평소보다 <span class="bg-white px-2">2배 크게</span></p>
+                    </div>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center text-red-600 font-bold bg-red-50 p-3 rounded-lg">
+                            <span class="mr-3 text-2xl">🚫</span> 말하기 / 공개 탈의 금지
+                        </li>
+                        <li class="flex items-center text-blue-600 font-bold bg-blue-50 p-3 rounded-lg">
+                            <span class="mr-3 text-2xl">✅</span> 눈높이 맞춤 / 오버 액션
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Manager Role -->
+                <div class="card-box p-10 shadow-lg">
+                    <h2 class="text-3xl font-bold mb-8 text-black">6. 관리자 역할 </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center p-5 bg-gray-50 rounded-2xl border border-gray-200">
+                            <div class="text-4xl mr-5">🚩</div>
+                            <div>
+                                <strong class="block text-2xl text-black mb-1">네비게이터</strong>
+                                <span class="text-gray-600 text-lg">장애물, 계단 미리 알림</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-5 bg-red-50 rounded-2xl border border-red-100">
+                            <div class="text-4xl mr-5">🛡️</div>
+                            <div>
+                                <strong class="block text-2xl text-red-700 mb-1">안전 가드</strong>
+                                <span class="text-red-900 text-lg">터치/공격으로부터 보호</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Maintenance -->
+            <section class="bg-white p-10 rounded-3xl shadow-xl border-t-8 border-yellow-500 card-box">
+                <h2 class="text-4xl font-bold mb-10 text-black">7. 관리 및 보관 </h2>
+                
+                <div class="grid grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-blue-50 rounded-2xl border-2 border-blue-200">
+                            <h3 class="text-2xl font-bold mb-4 text-black flex items-center">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-full inline-flex items-center justify-center mr-3 text-lg">1</span>
+                                세척 및 자연 건조
+                            </h3>
+                            <ul class="list-disc pl-6 text-xl space-y-2 text-gray-800">
+                                <li>사용 직후 외부 먼지 제거</li>
+                                <li>통풍 공간 <strong>24시간 건조</strong></li>
+                                <li class="text-blue-700 font-bold">신발 별도 분리 건조</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+                            <h3 class="text-2xl font-bold mb-2 text-black">전문 세탁</h3>
+                            <p class="text-xl text-gray-600">임의 세탁 금지 (업체 문의)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-200 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4 text-yellow-800 text-center">📦 보관 </h3>
+                        <div class="aspect-video bg-white rounded-xl overflow-hidden mb-4 border border-gray-200 flex items-center justify-center">
+                            <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfMTMg/MDAxNzY1OTM5NjcwNDY3.BHCC_LwmgXycYi6rIW3PcP-GBWvOQLdklO6YHuGvRFAg.hJXqj3dvOjAffHrfLsiKBkHLxEN9Qx7x7mqRN_eY0M8g.PNG/packing.png?type=w466" alt="패킹" class="w-full h-full object-contain"
+                                 onerror="handleImageError(this, 'https://placehold.co/600x400/fff/d97706?text=Packing');">
+                        </div>
+                        <p class="text-center text-xl text-yellow-900 font-bold">신발을 몸통 안에 넣고<br>전용 파우치 보관</p>
+                    </div>
+                </div>
+            </section>
+
+             <!-- 8. Regular Inspection -->
+            <section class="bg-green-50 p-8 rounded-3xl border border-green-200 shadow-lg card-box !bg-green-50 !border-green-200">
+                <h2 class="text-3xl font-bold mb-6 text-black flex items-center">
+                    <span class="mr-2">📋</span> 사용 점검표 (Checklist)
+                </h2>
+                
+                <!-- NEW WARNING -->
+                <div class="w-full bg-white border border-green-300 rounded-xl p-3 mb-6 flex items-center justify-center text-green-800 font-bold shadow-sm">
+                    ⚠️ 화면상의 체크박스는 단순 확인용입니다. 아래 '온라인 사전, 사후 점검표 작성' 버튼을 이용해주세요.
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Pre-Event Checklist -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-green-100 flex flex-col h-full">
+                        <h3 class="font-bold text-xl mb-4 text-green-700">✅ 사용 전 점검 (Pre-Event)</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start bg-green-100 p-3 rounded-xl border border-green-200">
+                                <input type="checkbox" class="w-5 h-5 mr-3 mt-0.5 accent-green-600 shrink-0"> 
+                                <span class="font-bold text-green-900">전체 외관 사진 촬영 (상태 기록)</span>
+                            </li>
+                            <li class="flex items-start bg-gray-50 p-3 rounded-xl border border-gray-100">
+                                <input type="checkbox" class="w-5 h-5 mr-3 mt-0.5 accent-green-600 shrink-0"> 
+                                <span class="text-gray-700 font-medium">시야창 확보 및 내부 청결 상태</span>
+                            </li>
+                            <li class="flex items-start bg-gray-50 p-3 rounded-xl border border-gray-100">
+                                <input type="checkbox" class="w-5 h-5 mr-3 mt-0.5 accent-green-600 shrink-0"> 
+                                <span class="text-gray-700 font-medium">봉제선 및 마감 상태 확인</span>
+                            </li>
+                        </ul>
+                        <!-- [Google Form Link - Pre Event] -->
+                        <div class="mt-auto">
+                            <!-- [LINK APPLIED] 구글 폼 링크 적용 완료 -->
+                            <a href="https://forms.gle/3eaJJCB4ekRFV4KeA" target="_blank" class="block w-full bg-green-600 text-white text-center font-bold py-3 rounded-xl shadow-md hover:bg-green-700 transition duration-300 flex items-center justify-center gap-2">
+                                <span>📝</span> <span>온라인 <span class="text-yellow-300 font-black text-lg">사전</span> 점검표 작성 (Click)</span>
+                            </a>
+                            <!-- [NEW NOTICE] 사전 점검표 = 대여 신청서 동일 안내 -->
+                            <p class="text-sm font-bold text-center text-green-700 mt-2 bg-green-50 py-1 rounded-lg border border-green-200">※ 사전 점검표는 <u>대여 신청서</u>와 동일합니다.</p>
+                            <p class="text-xs text-center text-gray-400 mt-2">※ 클릭 시 구글 설문지로 이동합니다</p>
+                        </div>
+                    </div>
+
+                    <!-- Post-Event Checklist -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-green-100 flex flex-col h-full">
+                        <h3 class="font-bold text-xl mb-4 text-green-700">✅ 사용 후 점검 </h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start bg-green-100 p-3 rounded-xl border border-green-200">
+                                <input type="checkbox" class="w-5 h-5 mr-3 mt-0.5 accent-green-600 shrink-0"> 
+                                <span class="font-bold text-green-900">전체 외관 사진 촬영 (파손 비교)</span>
+                            </li>
+                            <li class="flex items-start bg-gray-50 p-3 rounded-xl border border-gray-100">
+                                <input type="checkbox" class="w-5 h-5 mr-3 mt-0.5 accent-green-600 shrink-0"> 
+                                <span class="text-gray-700 font-medium">외부 오염 및 파손 부위 확인</span>
+                            </li>
+                            <li class="flex items-start bg-gray-50 p-3 rounded-xl border border-gray-100">
+                                <input type="checkbox" class="w-5 h-5 mr-3 mt-0.5 accent-green-600 shrink-0"> 
+                                <span class="text-gray-700 font-medium">내부 건조 및 소독 완료 여부</span>
+                            </li>
+                        </ul>
+                        <!-- [Google Form Link - Post Event] -->
+                        <div class="mt-auto">
+                            <a href="https://forms.gle/KLYE42cU7N7TLf2p9" target="_blank" class="block w-full bg-green-600 text-white text-center font-bold py-3 rounded-xl shadow-md hover:bg-green-700 transition duration-300 flex items-center justify-center gap-2">
+                                <span>📝</span> <span>온라인 <span class="text-yellow-300 font-black text-lg">사후</span> 점검표 작성 (Click)</span>
+                            </a>
+                            <!-- [NEW: Invisible Placeholder for Alignment] -->
+                            <p class="text-sm font-bold text-center text-green-700 mt-2 bg-green-50 py-1 rounded-lg border border-green-200 invisible">※ 줄맞춤용 투명 텍스트입니다.</p>
+                            <p class="text-xs text-center text-gray-400 mt-2">※ 클릭 시 구글 설문지로 이동합니다</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center py-12">
+                <div class="inline-block bg-red-100 border-2 border-red-300 rounded-2xl px-12 py-6">
+                    <p class="text-red-700 font-bold text-2xl">
+                        🚨 비상 시: 임의 수선 금지 / 관리자 즉시 보고
+                    </p>
+                </div>
+            </footer>
+
+        </main>
+
+        <!-- [MOVED TO END] 0. One-Page Summary (요약하기) -->
+        <section class="px-12 py-16">
+            <!-- 섹션 타이틀 스타일을 하단 본문(2. 자격요건 등)과 동일하게 맞춤 -->
+            <div class="mb-8 pl-6 border-l-8 border-black">
+                 <h2 class="text-4xl font-black text-black tracking-tight">한눈에 보는 요약</h2>
+                 <p class="text-xl text-gray-500 font-medium mt-2">매뉴얼 전체 내용을 한 장으로 확인하세요.</p>
+            </div>
+            
+            <!-- 이미지 컨테이너: 흰색 배경 박스에 넣어 깔끔하게 정리 -->
+            <div class="card-box p-6 w-full flex justify-center">
+                <img src="https://postfiles.pstatic.net/MjAyNTEyMTdfMTEy/MDAxNzY1OTQ2MDI1MzQ5.uMCCxLmR_9v1HtsGPIE8eOFdkcTAGz7KrbvwXGAABkIg.WDRottF1hbhfu8yllXkYTJXzDvWwKPY5yqSdp6XRaF0g.PNG/%EA%B7%B8%EB%A6%BC1.png?type=w966" 
+                     alt="매뉴얼 요약" class="w-full max-w-5xl h-auto object-contain rounded-xl">
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
