@@ -19,6 +19,20 @@
             overflow-wrap: break-word;
         }
 
+        /* 이미지 보호 스타일 추가 */
+        img {
+            -webkit-user-drag: none;  /* 크롬, 사파리 드래그 방지 */
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            user-select: none; /* 선택 방지 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            pointer-events: auto; /* 클릭 이벤트는 허용하되 스크립트로 제어 */
+        }
+
         .ppt-container {
             width: 100%;
             max-width: 1280px;
@@ -79,9 +93,24 @@
                 img.onerror = null;
             }
         }
+
+        // 페이지 로드 후 모든 이미지에 우클릭 방지 이벤트 추가
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // 우클릭 방지 (Context Menu)
+                img.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                });
+                // 드래그 시작 방지
+                img.addEventListener('dragstart', (e) => {
+                    e.preventDefault();
+                });
+            });
+        });
     </script>
 </head>
-<body class="antialiased">
+<body class="antialiased" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 
     <div class="ppt-container">
         
@@ -110,13 +139,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full max-w-6xl mx-auto">
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl md:rounded-3xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300">
                         <div class="aspect-[4/3] bg-white rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4 shadow-inner flex items-center justify-center">
-                            <img src="character_front.png" class="w-full h-full object-contain" onerror="handleImageError(this, 'https://placehold.co/800x600/f8fafc/cbd5e1?text=Front+View');">
+                            <img src="character_front.png" class="w-full h-full object-contain pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/800x600/f8fafc/cbd5e1?text=Front+View');">
                         </div>
                         <span class="font-bold text-sm md:text-xl bg-blue-800/30 px-3 md:px-4 py-1 rounded-full border border-white/40">▲ 정면 (Front)</span>
                     </div>
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl md:rounded-3xl p-4 md:p-6 border border-white/20 hover:bg-white/20 transition-colors duration-300">
                         <div class="aspect-[4/3] bg-white rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4 shadow-inner flex items-center justify-center">
-                            <img src="character_side.png" class="w-full h-full object-contain" onerror="handleImageError(this, 'https://placehold.co/800x600/f8fafc/cbd5e1?text=Side+View');">
+                            <img src="character_side.png" class="w-full h-full object-contain pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/800x600/f8fafc/cbd5e1?text=Side+View');">
                         </div>
                         <span class="font-bold text-sm md:text-xl bg-blue-800/30 px-3 md:px-4 py-1 rounded-full border border-white/40">▲ 측면 (Side)</span>
                     </div>
@@ -196,7 +225,7 @@
                         <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-3 md:mb-6 text-lg md:text-2xl shadow-lg">1</div>
                         <h4 class="font-bold text-base md:text-xl mb-2 md:mb-4 text-gray-900">신발 착용</h4>
                         <div class="aspect-square bg-white rounded-2xl mb-3 md:mb-4 flex items-center justify-center shadow-inner overflow-hidden">
-                             <img src="character_shoes.png" class="w-full h-full object-contain" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step1');">
+                             <img src="character_shoes.png" class="w-full h-full object-contain pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step1');">
                         </div>
                         <p class="text-gray-700 font-medium text-xs md:text-base">탈을 입기 전 신발을<br>먼저 신고 고정합니다.</p>
                     </div>
@@ -204,7 +233,7 @@
                         <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-3 md:mb-6 text-lg md:text-2xl shadow-lg">2</div>
                         <h4 class="font-bold text-base md:text-xl mb-2 md:mb-4 text-gray-900">팔 입히기</h4>
                         <div class="aspect-square bg-white rounded-2xl mb-3 md:mb-4 flex items-center justify-center shadow-inner overflow-hidden">
-                             <img src="mascot_body.png" class="w-full h-full object-contain" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step2');">
+                             <img src="mascot_body.png" class="w-full h-full object-contain pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step2');">
                         </div>
                         <p class="text-gray-700 font-medium text-xs md:text-base">착용자가 허리를 숙이면<br>양팔부터 천천히 끼웁니다.</p>
                     </div>
@@ -212,7 +241,7 @@
                         <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-3 md:mb-6 text-lg md:text-2xl shadow-lg">3</div>
                         <h4 class="font-bold text-base md:text-xl mb-2 md:mb-4 text-gray-900">머리 안착</h4>
                         <div class="aspect-square bg-white rounded-2xl mb-3 md:mb-4 flex items-center justify-center shadow-inner overflow-hidden">
-                             <img src="wearing2.png" class="w-full h-full object-contain" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step3');">
+                             <img src="wearing2.png" class="w-full h-full object-contain pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/2563eb?text=Step3');">
                         </div>
                         <p class="text-gray-700 font-medium text-xs md:text-base">마지막으로 머리를 맞춰 씌운 후,<br>착용자의 시야에 맞게 정리해 주세요.</p>
                     </div>
@@ -231,7 +260,7 @@
                                 <span class="mr-2 md:mr-3 text-xl md:text-3xl">🧼</span> 세척 및 건조 방법
                             </h3>
                             <div class="aspect-video bg-white rounded-2xl mb-3 md:mb-6 overflow-hidden border border-indigo-200 shadow-sm">
-                                <img src="drying.png" class="w-full h-full object-cover" onerror="handleImageError(this, 'https://placehold.co/600x400/fff/4f46e5?text=Drying+Process+Photo');">
+                                <img src="drying.png" class="w-full h-full object-cover pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/600x400/fff/4f46e5?text=Drying+Process+Photo');">
                             </div>
                             <ul class="space-y-2 md:space-y-4 text-sm md:text-lg text-indigo-800 font-medium">
                                 <li class="flex items-start gap-2 md:gap-3"><span>•</span> 내부 오염 부위 소독 스프레이 살포</li>
@@ -248,10 +277,10 @@
                             
                             <div class="grid grid-cols-2 gap-2 md:gap-4 mb-3 md:mb-6">
                                 <div class="aspect-square bg-white rounded-2xl overflow-hidden border border-yellow-100 shadow-sm group">
-                                    <img src="packing.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/d97706?text=1.Shoes+Inside');">
+                                    <img src="packing.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/d97706?text=1.Shoes+Inside');">
                                 </div>
                                 <div class="aspect-square bg-white rounded-2xl overflow-hidden border border-yellow-100 shadow-sm group">
-                                    <img src="pouch_storage.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/d97706?text=2.Packing');">
+                                    <img src="pouch_storage.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/400x400/fff/d97706?text=2.Packing');">
                                 </div>
                             </div>
 
@@ -272,7 +301,7 @@
                 
                 <div class="card-box p-2 md:p-4 max-w-6xl mx-auto overflow-hidden shadow-2xl">
                     <div class="w-full relative rounded-xl overflow-hidden" style="aspect-ratio: 2000 / 1105;">
-                        <img src="그림1.png" class="w-full h-full object-cover hover:scale-[1.01] transition-transform duration-500" onerror="handleImageError(this, 'https://placehold.co/2000x1105/f1f5f9/64748b?text=One-Page+Summary+Image');">
+                        <img src="그림1.png" class="w-full h-full object-cover hover:scale-[1.01] transition-transform duration-500 pointer-events-none" onerror="handleImageError(this, 'https://placehold.co/2000x1105/f1f5f9/64748b?text=One-Page+Summary+Image');">
                     </div>
                 </div>
             </section>
@@ -285,7 +314,7 @@
                 <p class="text-xl md:text-3xl font-black text-red-400 mb-3 md:mb-6 animate-pulse">🚨 긴급 상황 발생 시</p>
                 <p class="text-sm md:text-xl text-gray-300 mb-4 md:mb-8 leading-relaxed">
                     임의 수선 금지 / 파손 발생 시 사진 촬영<br>
-                    <strong>즉시 관리자(7642)에게 보고해 주세요.</strong>
+                    <strong>즉시 관리자(500-7642)에게 보고해 주세요.</strong>
                 </p>
                 <p class="text-gray-500 text-xs md:text-base">© Mascot Management Solution Standard Manual</p>
             </div>
